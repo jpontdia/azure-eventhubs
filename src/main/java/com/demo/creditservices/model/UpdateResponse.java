@@ -1,13 +1,10 @@
-package com.democompany.creditservices.model;
+package com.demo.creditservices.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.time.OffsetDateTime;
 
-
-@Getter
-@Setter
+@Data
 public class UpdateResponse {
     UpdateRequest updateRequest;
     OffsetDateTime changeDate;

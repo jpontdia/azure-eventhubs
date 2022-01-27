@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.2</version>
+        <version>2.6.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <packaging>jar</packaging>
@@ -17,8 +17,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <azure.version>3.12.0</azure.version>
-        <springboot.version>2.6.2</springboot.version>
+        <azure.version>3.12.1</azure.version>
         <swagger-hub.token>32bafe86-aaaa-1111-a2a2-9af2c6551878</swagger-hub.token>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -33,38 +32,41 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
-
-        <!--EventsHub Dependencies
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream</artifactId>
             <version>3.2.1</version>
         </dependency>
         <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
-            <version>2.11.0</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
-        -->
+
+        <!--Logback appender using kafka API-->
+        <dependency>
+            <groupId>com.github.danielwegener</groupId>
+            <artifactId>logback-kafka-appender</artifactId>
+            <version>0.2.0-RC2</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <!--EventsHub Dependencies-->
         <dependency>
-            <groupId>com.azure</groupId>
-            <artifactId>azure-messaging-eventhubs</artifactId>
-            <version>5.9.0</version>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+            <version>2.12.0</version>
         </dependency>
 
         <!-- OpenApi 3 (swagger) -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.5.10</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>1.6.4</version>
         </dependency>
 
         <!-- HTTP Client -->
@@ -135,7 +137,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${springboot.version}</version>
+                <version>${parent.version}</version>
                 <executions>
                     <execution>
                         <goals>

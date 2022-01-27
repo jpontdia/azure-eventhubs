@@ -1,4 +1,4 @@
-package com.democompany.creditservices;
+package com.demo.creditservices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

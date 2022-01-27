@@ -1,4 +1,4 @@
-package com.democompany.creditservices;
+package com.demo.creditservices;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;

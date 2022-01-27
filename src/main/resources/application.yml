@@ -2,7 +2,16 @@ logging:
   level:
     root: INFO
     com:
-      democompany: DEBUG
+      demo: DEBUG
+      azure:
+        core:
+          amqp: ERROR
+        messaging:
+          eventhubs:
+            PartitionBasedLoadBalancer: ERROR
+            EventHubConsumerAsyncClient: ERROR
+            EventHubClientBuilder: ERROR
+            implementation: ERROR
     httpclient:
       wire: INFO
     org:
@@ -12,6 +21,8 @@ logging:
         web:
           client:
             RestTemplate: INFO
+        integration:
+          endpoint: ERROR
 
 spring:
   application:
@@ -22,15 +33,34 @@ spring:
   cloud:
     azure:
       eventhub:
-        connection-string: Endpoint=sb://myeventhub.servicebus.windows.net/;SharedAccessKeyName=basic;SharedAccessKey=mysharedkey;EntityPath=test
-        checkpoint-storage-account: mystorageaccount
-        checkpoint-access-key: mystorageaccount-key
+        connection-string: ${EVENTHUBS_CONNECTION}
+
+        #Next configuration is needed for consumers:
+        #checkpoint-storage-account: my-azure-storage-account
+        #checkpoint-access-key: abcd-abcd-abcdt4g==
+        #checkpoint-container: logging4
     stream:
       function:
-        definition: produce
+        #Configuration for the producer and supplier
+        #definition: supply;consume;
+        #Configuration only for the producer:
+        definition: supply
       bindings:
-        produce-out-0:
-          destination: test
+        #Configuration for the consumer
+        #consume-in-0:
+          #destination: logging4
+          #group: $Default
+        supply-out-0:
+          destination: payloads
+      #Configuration for the consumer
+      #eventhub:
+        #bindings:
+          #consume-in-0:
+            #consumer:
+              #checkpoint-mode: MANUAL
+      poller:
+        initial-delay: 0
+        fixed-delay: 1000
 
 openapi:
   application-title: Credit Limit
@@ -41,13 +71,3 @@ openapi:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-
-fiserv:
-  url: ${FISERV_URL:https://fiserve.url.com}
-  subscriptionKey: Subscription-Key
-  subscriptionValue: ${SUBSCRIPTION_VALUE:aaaaaaa}
-  user: demouser
-
-  creditlimit:
-    update: /maintenance/updateCreditLimit
-

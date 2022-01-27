@@ -1,4 +1,4 @@
-package com.democompany.creditservices.config;
+package com.demo.creditservices.config;
 
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.TrustStrategy;

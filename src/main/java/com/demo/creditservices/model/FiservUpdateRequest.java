@@ -1,4 +1,4 @@
-package com.democompany.creditservices.model;
+package com.demo.creditservices.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

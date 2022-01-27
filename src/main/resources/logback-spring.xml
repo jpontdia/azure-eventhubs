@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="kafka-appender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{ISO8601} %-5level [%-15.15t{15}] %-41logger{41}: %msg%n</pattern>
+        </encoder>
+
+        <topic>${EVENTHUBS_LOGGING_EVENTHUB}</topic>
+        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy" />
+        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy" />
+
+        <producerConfig>bootstrap.servers=${EVENTHUBS_NAMESPACE}.servicebus.windows.net:9093</producerConfig>
+        <producerConfig>security.protocol=SASL_SSL</producerConfig>
+        <producerConfig>sasl.mechanism=PLAIN</producerConfig>
+        <producerConfig>sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="${EVENTHUBS_CONNECTION}";</producerConfig>
+    </appender>
+
+    <appender name="Console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--Pattern documentation https://logback.qos.ch/manual/layouts.html -->
+            <!--Format modifiers https://logback.qos.ch/manual/layouts.html#formatModifiers -->
+            <Pattern>
+                %boldGreen(%d{ISO8601}) %highlight(%-5level) [%blue(%-15.15t{15})] %green(%-41logger{41}:) %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="Console" />
+    </root>
+
+    <logger name="com.demo" level="debug" additivity="false">
+        <appender-ref ref="Console" />
+        <appender-ref ref="kafka-appender" />
+    </logger>
+
+</configuration>

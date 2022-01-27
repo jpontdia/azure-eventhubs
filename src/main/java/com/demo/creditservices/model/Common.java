@@ -1,4 +1,4 @@
-package com.democompany.creditservices.model;
+package com.demo.creditservices.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.validation.annotation.Validated;

@@ -1,4 +1,4 @@
-package com.democompany.creditservices.exceptionhandling;
+package com.demo.creditservices.exceptionhandling;
 
 import org.springframework.core.NestedRuntimeException;
 import org.springframework.http.HttpStatus;
