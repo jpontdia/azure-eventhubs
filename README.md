@@ -5,6 +5,9 @@ Project objectives
 1. Send application logs to Azure Event Hubs implementing a Logback appender.
 2. Producing events with Spring Cloud Stream to Azure Event Hubs.
 
+The next image depicts the architecture of the application:
+![architecture](./docs/architecture.png)
+
 # Prerequisites
 * An Azure subscription
 * Java Development Kit (JDK) 11
