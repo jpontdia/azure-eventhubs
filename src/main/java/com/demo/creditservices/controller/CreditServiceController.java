@@ -35,10 +35,6 @@ public class CreditServiceController {
     public ResponseEntity<UpdateResponse> creditlimit(
             @RequestBody @NotNull(message = "updateRequest can not be empty")
             @Valid UpdateRequest updateRequest){
-
-        log.info("The service is starting");
-        log.debug("The request payload is: {}", updateRequest.toString());
-
         many.emitNext(updateRequest.toString(), Sinks.EmitFailureHandler.FAIL_FAST);
         UpdateResponse updateResponse = new UpdateResponse();
         updateResponse.setUpdateRequest(updateRequest);

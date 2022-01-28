@@ -98,7 +98,13 @@ Then command will ask for:
 Monitor the incoming message sent to Event Hub. From the command palette (Ctrl-Shift-P) select:
 >EventHub: Start Monitoring Event Hub Message
  
-![extension](./docs/vs-code-monitor.jpg)
+![Event Hubs explorer](./docs/vs-code-monitor.jpg)
+
+[Test the application](#build-and-test-the-application), and you should see the messages in VisualStudio Code:
+![Event Hubs explorer results](./docs/vs-code-monitor-results.jpg)
+
+The logging messages must be the same as the spring console:
+![Spring boot console](./docs/spring-console.jpg)
 
 ## Recommended content
 * [Use Azure Event Hubs from Apache Kafka applications](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
