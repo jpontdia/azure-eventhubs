@@ -6,7 +6,7 @@
 2. [Prerequisites](#prerequisites)
 3. [Environment variables](#environment-variables)
 4. [Build and test the application](#build-and-test-the-application)
-5. 
+5. [Reading messages from Event Hubs](#reading-messages-from-event-hubs)
 6. [Recommended content](#recommended-content)
 
 ## Objectives
