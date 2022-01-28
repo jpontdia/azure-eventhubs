@@ -1,21 +1,29 @@
 # azure-eventhubs
 *Microsoft Azure Event Hubs demo with Spring Boot 2.6.3. Implemented features: Logback Appender & Event Producer*
 
-Project objectives
+## Table of contents
+1. [Objectives](#Objectives)
+2. [Prerequisites](#prerequisites)
+3. [Environment variables](#environment-variables)
+4. [Build and test the application](#build-and-test-the-application)
+5. 
+6. [Recommended content](#recommended-content)
+
+## Objectives
 1. Send application logs to Azure Event Hubs implementing a Logback appender.
-2. Producing events with Spring Cloud Stream to Azure Event Hubs.
+2Producing events with Spring Cloud Stream to Azure Event Hubs.
 
 The next image depicts the architecture of the application:
 ![architecture](./docs/architecture.png)
 
-# Prerequisites
+## Prerequisites
 * An Azure subscription
 * Java Development Kit (JDK) 11
 * Apache Maven, version 3.8 or later.
 * An Event Hubs standard instance (for the use case of logging with the Kafka API)
 * 2 Event Hub's (topics), one for storing the log messages and other to store the message payloads received in the web service 
 
-# Environment variables
+## Environment variables
 The application requires the next environment variables:
 * EVENTHUBS_NAMESPACE. The management container for event hubs (or topics, in Kafka parlance).
 * EVENTHUBS_CONNECTION. The connection string for Event Hubs
@@ -40,7 +48,7 @@ set EVENTHUBS_LOGGING_EVENTHUB=logs
 4. Select **RootManageSharedAccessKey** and copy the Connection string-primary key
    ![connection-string](./docs/event-hubs-connectionstring.jpg)
 
-# Build and test the application
+## Build and test the application
 
 Build your Spring Boot application with Maven and run it; for example:
 ~~~bash
@@ -74,8 +82,25 @@ You should see a similar json response in the client:
 }
 ~~~
 
+## Reading messages from Event Hubs
+Using VisualStudio Code We can get the messages sent to the logging Event Hub. Install the Azure Event Hub Explorer:
+![extension](./docs/vs-code-extension.jpg)
 
-# Recommended content
+Configure the Event Hub connection. From the command palette (Ctrl-Shift-P) select:
+>EventHub: Select Event Hub
+
+Then command will ask for:
+* The Azure subscription
+* The resource group
+* The namespace
+* The event hub
+
+Monitor the incoming message sent to Event Hub. From the command palette (Ctrl-Shift-P) select:
+>EventHub: Start Monitoring Event Hub Message
+ 
+![extension](./docs/vs-code-monitor.jpg)
+
+## Recommended content
 * [Use Azure Event Hubs from Apache Kafka applications](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 * [How to create a Spring Cloud Stream Binder application with Azure Event Hubs](https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub)
 * [Integrate Event Hubs with serverless functions on Azure](https://docs.microsoft.com/en-us/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)

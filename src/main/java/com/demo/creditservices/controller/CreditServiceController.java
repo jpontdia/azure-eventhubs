@@ -36,8 +36,10 @@ public class CreditServiceController {
             @RequestBody @NotNull(message = "updateRequest can not be empty")
             @Valid UpdateRequest updateRequest){
 
-        many.emitNext(updateRequest.toString(), Sinks.EmitFailureHandler.FAIL_FAST);
+        log.info("The service is starting");
+        log.debug("The request payload is: {}", updateRequest.toString());
 
+        many.emitNext(updateRequest.toString(), Sinks.EmitFailureHandler.FAIL_FAST);
         UpdateResponse updateResponse = new UpdateResponse();
         updateResponse.setUpdateRequest(updateRequest);
         updateResponse.setChangeDate(OffsetDateTime.now());
