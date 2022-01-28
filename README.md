@@ -86,7 +86,7 @@ You should see a similar json response in the client:
 Using VisualStudio Code We can get the messages sent to the logging Event Hub. Install the Azure Event Hub Explorer:
 ![extension](./docs/vs-code-extension.jpg)
 
-Configure the Event Hub connection. From the command palette (Ctrl-Shift-P) select:
+Configure the Event Hub connection. From the command palette (Ctrl-Shift-P) select the operation:
 >EventHub: Select Event Hub
 
 Then command will ask for:
