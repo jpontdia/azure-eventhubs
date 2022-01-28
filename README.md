@@ -11,7 +11,7 @@
 
 ## Objectives
 1. Send application logs to Azure Event Hubs implementing a Logback appender.
-2Producing events with Spring Cloud Stream to Azure Event Hubs.
+2. Producing events with Spring Cloud Stream to Azure Event Hubs.
 
 The next image depicts the architecture of the application:
 ![architecture](./docs/architecture.png)
