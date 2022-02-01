@@ -111,3 +111,4 @@ The logging messages must be the same as the spring console:
 * [How to create a Spring Cloud Stream Binder application with Azure Event Hubs](https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub)
 * [Integrate Event Hubs with serverless functions on Azure](https://docs.microsoft.com/en-us/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
 * [Features and terminology in Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features)
+* [Explore Azure Event Hubs with GUI](https://medium.com/@sriharip316/explore-azure-event-hubs-with-gui-2501ed278d4)
